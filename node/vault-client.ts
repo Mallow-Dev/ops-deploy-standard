@@ -1,7 +1,12 @@
-import fetch from 'node-fetch';
+import nodeFetch from 'node-fetch';
+
+function getFetcher() {
+  return (globalThis.fetch as any) ?? nodeFetch;
+}
 
 export async function loginWithAppRole(roleId: string, secretId: string, vaultAddr = 'http://127.0.0.1:8200') {
-  const res = await fetch(`${vaultAddr}/v1/auth/approle/login`, {
+  const fetcher = getFetcher();
+  const res = await fetcher(`${vaultAddr}/v1/auth/approle/login`, {
     method: 'POST',
     body: JSON.stringify({ role_id: roleId, secret_id: secretId }),
     headers: { 'Content-Type': 'application/json' },
@@ -12,7 +17,8 @@ export async function loginWithAppRole(roleId: string, secretId: string, vaultAd
 }
 
 export async function readSecretKV(path: string, token: string, vaultAddr = 'http://127.0.0.1:8200') {
-  const res = await fetch(`${vaultAddr}/v1/secret/data/${path}`, {
+  const fetcher = getFetcher();
+  const res = await fetcher(`${vaultAddr}/v1/secret/data/${path}`, {
     method: 'GET',
     headers: { 'X-Vault-Token': token },
   });

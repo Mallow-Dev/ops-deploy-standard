@@ -5,13 +5,12 @@
     "description": "Standardised deploy utilities: Vault scripts, Node helpers, demo, and mock deploy",
     "categories": ["Themes","Snippets"],
     "dependencies": {},
-    "scripts": {
-      "build:demo": "cd demo && npm install && npm run build",
-      "start:demo": "cd demo && npm run start"
-    },
     
     "version": "0.1.0",
     "main": "index.js",
+    "engines": {
+      "node": ">=20"
+    },
     "type": "module",
     "keywords": ["deployment", "vault", "automation", "ops", "secure", "environment"],
     "author": "Mallow AI Ltd",
@@ -29,12 +28,14 @@
       "vitest": "^1.0.0",
       "@types/node": "^20.0.0",
       "cross-env": "^7.0.0",
-      "node-fetch": "^3.4.0",
-      "fetch-mock": "^9.11.0"
+      "node-fetch": "^3.3.2",
+      "fetch-mock": "^9.11.0",
+      "supertest": "^6.3.3",
+      "@types/supertest": "^2.0.12"
     },
     "scripts": {
       "test": "vitest",
-      "test:coverage": "vitest --coverage",
+      "test:coverage": "vitest --coverage --run",
       "build:demo": "cd demo && npm install && npm run build",
       "start:demo": "cd demo && npm run start",
       "validate-vault": "node node/validate-vault.js || true",
