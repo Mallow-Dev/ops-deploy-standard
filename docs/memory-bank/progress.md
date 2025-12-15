@@ -12,6 +12,14 @@
 - Vitest unit tests added and passing: `test/vault-client.test.ts`, `test/demo.test.ts`.
 - Tests run clean locally; small compatibility fixes applied to `node/vault-client.ts` and `demo/src/index.ts` to support testing.
 
+### Coverage (date: 2025-12-15)
+
+- **All files:** Statements 84%, Branches 55.55%, Functions 83.33%, Lines 95.23%
+- **node/vault-client.ts:** Statements 88.88%, Branches 58.33%, Functions 100%, Lines 100% (uncovered lines: 4,14,25-34)
+- **demo/src/index.ts:** Statements 71.42%, Branches 50%, Functions 50%, Lines 83.33% (uncovered: line 11)
+
+Notes: Branch coverage is low because error and alternative branches were not exercised by current tests. Recommend adding negative/error case tests for `node/vault-client.ts` and a test for the demo's server-start conditional.
+
 ## Remaining (recommended)
 
 - Add `Makefile` for convenience targets.
