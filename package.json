@@ -1,0 +1,48 @@
+
+
+  {
+    "name": "ops-environment-secrets-vault-deploy-standard",
+    "description": "Standardised deploy utilities: Vault scripts, Node helpers, demo, and mock deploy",
+    "categories": ["Themes","Snippets"],
+    "dependencies": {},
+    "scripts": {
+      "build:demo": "cd demo && npm install && npm run build",
+      "start:demo": "cd demo && npm run start"
+    },
+    
+    "version": "0.1.0",
+    "main": "index.js",
+    "type": "module",
+    "keywords": ["deployment", "vault", "automation", "ops", "secure", "environment"],
+    "author": "Mallow AI Ltd",
+    "private": true,
+    "comments": "This package is private for security reasons, it contains Mallow deployment scripts and utilities.",
+    "license": "UNLICENSED",
+       
+    "devDependencies": {
+      "@typescript-eslint/eslint-plugin": "^6.0.0",
+      "@typescript-eslint/parser": "^6.0.0",
+      "cspell": "^7.0.0",
+      "eslint": "^8.0.0",
+      "prettier": "^3.0.0",
+      "typescript": "^5.0.0"
+    },
+    "devScripts": {
+      "validate-vault": "node node/validate-vault.js || true",
+      "lint": "eslint . --ext .js,.ts,.jsx,.tsx",
+      "lint:fix": "eslint . --ext .js,.ts,.jsx,.tsx --fix",
+      "format": "prettier --write .",
+      "format:check": "prettier --check .",
+      "typecheck": "tsc --noEmit",
+      "spell": "cspell .",
+      "healthcheck": "npm run typecheck && npm run lint && npm run format:check && npm run spell"
+    },    
+    "cspell": {
+      "languages": ["en-GB"],
+      "dictionaries": ["typescript", "node", "npm", "shellscript"],
+      "ignorePaths": ["node_modules/**", "demo/node_modules/**", "demo/dist/**"]
+    } 
+  }
+
+
+

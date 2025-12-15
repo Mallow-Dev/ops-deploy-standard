@@ -1,0 +1,7 @@
+services:
+  mock-vps:
+    build: .
+    ports:
+      - "2222:22"
+    volumes:
+      - ./mock-systemctl.sh:/usr/local/bin/mock-systemctl:ro

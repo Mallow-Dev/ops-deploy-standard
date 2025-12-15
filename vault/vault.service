@@ -1,0 +1,12 @@
+[Unit]
+Description=HashiCorp Vault - secret management
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/vault server -config=/etc/vault.d/vault.hcl
+Restart=on-failure
+RestartSec=5
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
