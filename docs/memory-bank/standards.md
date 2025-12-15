@@ -9,4 +9,4 @@ Standards followed and recommendations:
 - CI uses GitHub Actions with repository secrets for CI-run secrets and deploy keys.
 - Documentation: include `SECURITY.md` and `CONTRIBUTING.md` for operator/dev onboarding.
 
-- **Dependency Rule:** Always use current package versions for dependencies and devDependencies. Regularly run upgrades and keep packages up-to-date to avoid large, risky mass-upgrades later. Use automation (Dependabot or Renovate) to open minor and patch updates promptly and review major upgrades in a controlled branch.
+- **Dependency Rule:** Always use current package versions for dependencies and devDependencies. Regularly apply patch and minor upgrades and address major upgrades in a planned branch. Automate routine updates with Dependabot or Renovate and review PRs promptly to avoid large, risky mass-upgrades later.
