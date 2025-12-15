@@ -5,3 +5,5 @@
 - Fail-fast env validation in apps; do not allow insecure default secrets in code.
 - Use systemd drop-ins to inject short-lived AppRole IDs into target servers during deploy.
 - Prefer Ed25519 keys for demo automation to avoid entropy blocking and for modern cryptography.
+
+- **Dependency Decision:** Adopt a rule that applications and infra tooling should keep dependencies on current versions. Prefer frequent smaller upgrades (minor/patch) and use automated PRs for these updates. Treat major upgrades as planned work requiring dedicated branches and tests.
