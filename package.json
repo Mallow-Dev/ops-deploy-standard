@@ -1,60 +1,73 @@
-
-
-  {
+{
     "name": "ops-environment-secrets-vault-deploy-standard",
     "description": "Standardised deploy utilities: Vault scripts, Node helpers, demo, and mock deploy",
-    "categories": ["Themes","Snippets"],
-    "dependencies": {},
-    
+    "categories": [
+        "Themes",
+        "Snippets"
+    ],
     "version": "0.1.0",
     "main": "index.js",
     "engines": {
-      "node": ">=20"
+        "node": ">=20"
     },
     "type": "module",
-    "keywords": ["deployment", "vault", "automation", "ops", "secure", "environment"],
+    "keywords": [
+        "deployment",
+        "vault",
+        "automation",
+        "ops",
+        "secure",
+        "environment"
+    ],
     "author": "Mallow AI Ltd",
     "private": true,
     "comments": "This package is private for security reasons, it contains Mallow deployment scripts and utilities.",
     "license": "UNLICENSED",
-       
     "devDependencies": {
-      "@typescript-eslint/eslint-plugin": "^8.49.0",
-      "@typescript-eslint/parser": "^8.49.0",
-      "cspell": "^9.4.0",
-      "eslint": "^9.39.2",
-      "prettier": "^3.7.4",
-      "typescript": "^5.9.3",
-      "vitest": "^4.0.15",
-      "@types/node": "^25.0.2",
-      "cross-env": "^10.1.0",
-      "node-fetch": "^3.3.2",
-      "fetch-mock": "^12.6.0",
-      "supertest": "^7.1.4",
-      "@types/supertest": "^6.0.3"
+        "@types/node": "^25.0.2",
+        "@types/supertest": "^6.0.3",
+        "@typescript-eslint/eslint-plugin": "^8.49.0",
+        "@typescript-eslint/parser": "^8.49.0",
+        "@vitest/coverage-v8": "^4.0.15",
+        "cross-env": "^10.1.0",
+        "cspell": "^9.4.0",
+        "eslint": "^9.39.2",
+        "fetch-mock": "^12.6.0",
+        "node-fetch": "^3.3.2",
+        "prettier": "^3.7.4",
+        "supertest": "^7.1.4",
+        "typescript": "^5.9.3",
+        "vitest": "^4.0.15"
     },
     "scripts": {
-      "test": "vitest",
-      "test:coverage": "vitest --coverage --run",
-      "build:demo": "cd demo && npm install && npm run build",
-      "start:demo": "cd demo && npm run start",
-      "validate-vault": "node node/validate-vault.js || true",
-      "lint": "eslint . --ext .js,.ts,.jsx,.tsx",
-      "lint:fix": "eslint . --ext .js,.ts,.jsx,.tsx --fix",
-      "format": "prettier --write .",
-      "format:check": "prettier --check .",
-      "typecheck": "tsc --noEmit",
-      "spell": "cspell .",
-      "healthcheck": "npm run typecheck && npm run lint && npm run format:check && npm run spell",
-      "secret-scan": "sh scripts/secret-scan.sh"
+        "test": "vitest",
+        "test:coverage": "vitest --coverage --run",
+        "build:demo": "cd demo && npm install && npm run build",
+        "start:demo": "cd demo && npm run start",
+        "validate-vault": "node node/validate-vault.js || true",
+        "lint": "eslint . --ext .js,.ts,.jsx,.tsx",
+        "lint:fix": "eslint . --ext .js,.ts,.jsx,.tsx --fix",
+        "format": "prettier --write .",
+        "format:check": "prettier --check .",
+        "typecheck": "tsc --noEmit",
+        "spell": "cspell .",
+        "healthcheck": "npm run typecheck && npm run lint && npm run format:check && npm run spell",
+        "secret-scan": "sh scripts/secret-scan.sh"
     },
-    
     "cspell": {
-      "languages": ["en-GB"],
-      "dictionaries": ["typescript", "node", "npm", "shellscript"],
-      "ignorePaths": ["node_modules/**", "demo/node_modules/**", "demo/dist/**"]
-    } 
-  }
-
-
-
+        "languages": [
+            "en-GB"
+        ],
+        "dictionaries": [
+            "typescript",
+            "node",
+            "npm",
+            "shellscript"
+        ],
+        "ignorePaths": [
+            "node_modules/**",
+            "demo/node_modules/**",
+            "demo/dist/**"
+        ]
+    }
+}
