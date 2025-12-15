@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+set -e
+./scripts/secret-scan.sh
+echo "pre-commit: secret-scan passed"
+exit 0

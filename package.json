@@ -25,9 +25,18 @@
       "cspell": "^7.0.0",
       "eslint": "^8.0.0",
       "prettier": "^3.0.0",
-      "typescript": "^5.0.0"
+      "typescript": "^5.0.0",
+      "vitest": "^1.0.0",
+      "@types/node": "^20.0.0",
+      "cross-env": "^7.0.0",
+      "node-fetch": "^3.4.0",
+      "fetch-mock": "^9.11.0"
     },
-    "devScripts": {
+    "scripts": {
+      "test": "vitest",
+      "test:coverage": "vitest --coverage",
+      "build:demo": "cd demo && npm install && npm run build",
+      "start:demo": "cd demo && npm run start",
       "validate-vault": "node node/validate-vault.js || true",
       "lint": "eslint . --ext .js,.ts,.jsx,.tsx",
       "lint:fix": "eslint . --ext .js,.ts,.jsx,.tsx --fix",
@@ -35,8 +44,10 @@
       "format:check": "prettier --check .",
       "typecheck": "tsc --noEmit",
       "spell": "cspell .",
-      "healthcheck": "npm run typecheck && npm run lint && npm run format:check && npm run spell"
-    },    
+      "healthcheck": "npm run typecheck && npm run lint && npm run format:check && npm run spell",
+      "secret-scan": "sh scripts/secret-scan.sh"
+    },
+    
     "cspell": {
       "languages": ["en-GB"],
       "dictionaries": ["typescript", "node", "npm", "shellscript"],
