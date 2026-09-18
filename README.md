@@ -2,6 +2,17 @@
 
 Standardised deployment utilities: Vault operator scripts, a tiny demo app, a Node Vault helper, and a mock deploy environment for testing SSH-based deployments.
 
+## Authority boundary
+
+This repository owns deployment/reference tooling. It is an implementation layer, not an independent policy authority.
+
+- [`Mallow-Dev/org-governance`](https://github.com/Mallow-Dev/org-governance) owns applicability, governance profiles, branch/governance policy and exceptions.
+- [`Mallow-Dev/org-engineering-standards`](https://github.com/Mallow-Dev/org-engineering-standards) owns normative engineering and deployment requirements.
+- [`Mallow-Dev/standards`](https://github.com/Mallow-Dev/standards) owns executable shared configuration/packages.
+- This repository provides conforming deployment examples and utilities.
+
+When documents conflict, follow `org-governance` for applicability/profile/exception questions and `org-engineering-standards` for the normative requirement. Live provider state remains the evidence authority for what is actually deployed. Examples here must not weaken or supersede those sources, and no example should be treated as production truth without live verification.
+
 Structure
 
 - `vault/` - Vault operator scripts and systemd service template
@@ -40,4 +51,3 @@ Operator notes
 
 - Initialize Vault and create an AppRole using `vault/init-and-approle.sh`.
 - Provide TLS certs and configure `vault.hcl` before running Vault in production.
-
