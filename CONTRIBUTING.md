@@ -1,5 +1,7 @@
 # Contributing
 
+Changes in this repository must remain implementation/tooling changes that conform to `Mallow-Dev/org-governance` and `Mallow-Dev/org-engineering-standards`. If a contribution changes applicability, exception policy or a normative engineering requirement, propose that change in the corresponding authority repository instead of defining it here.
+
 Guidelines:
 
 - Fork or clone the repo and open a branch for your change.

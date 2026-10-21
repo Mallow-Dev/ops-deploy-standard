@@ -1,0 +1,48 @@
+name: Free Security Gate
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Free Security Gate
+    runs-on: [self-hosted, docker-vm]
+    timeout-minutes: 15
+    steps:
+      - name: Checkout candidate source
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+
+      - name: Assert approved Node 24 runtime
+        shell: bash
+        run: |
+          test "$(node -p 'process.versions.node.split(".")[0]')" = "24"
+          node --version
+
+      - name: Install declared dependencies without lifecycle scripts
+        shell: bash
+        run: |
+          npm ci --ignore-scripts --no-audit --no-fund
+          npm --prefix demo ci --ignore-scripts --no-audit --no-fund
+
+      - name: Verify unit tests
+        shell: bash
+        run: npm test -- --run
+
+      - name: Scan Git history for leaked credentials
+        shell: bash
+        run: |
+          command -v gitleaks
+          gitleaks git . --redact --no-banner
+
+      - name: Audit production and development dependency trees
+        shell: bash
+        run: |
+          npm audit --audit-level=high
+          npm --prefix demo audit --audit-level=high
